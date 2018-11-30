@@ -29,6 +29,8 @@ public class CommandFactory {
 		this.commands.add(new CmdMkDir("md", drive));
 		this.commands.add(new CmdMkFile("mf", drive));
 		this.commands.add(new CmdMkFile("mkfile", drive));
+                this.commands.add(new CmdExit("exit", drive));
+                this.commands.add(new CmdExitGugus("exitgugus", drive));
 
 		// Add your commands here
 		
