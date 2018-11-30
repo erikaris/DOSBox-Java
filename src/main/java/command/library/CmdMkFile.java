@@ -10,6 +10,8 @@ import interfaces.IDrive;
 import interfaces.IOutputter;
 import command.framework.Command;
 import filesystem.File;
+import java.security.Timestamp;
+import java.util.Calendar;
 
 class CmdMkFile extends Command {
 
@@ -18,10 +20,47 @@ class CmdMkFile extends Command {
 	}
 
 	@Override
-	public void execute(IOutputter outputter) {
-		String fileName = this.getParameterAt(0);
-		String fileContent = this.getParameterAt(1);
-		File newFile = new File(fileName, fileContent);
-		this.getDrive().getCurrentDirectory().add(newFile);
-	}
+//	public void execute(IOutputter outputter) {
+//		String fileName = this.getParameterAt(0);
+//		String fileContent = this.getParameterAt(1);
+//		File newFile = new File(fileName, fileContent);
+//		this.getDrive().getCurrentDirectory().add(newFile);
+//	}
+        
+//        public void execute(IOutputter outputter)   {
+//            String fileName;
+//            String fileContent;
+//            File newFile;
+//            
+//            switch (this.getParameterCount())   {
+//                case 1:
+//                    fileName = this.getParameterAt(0);
+//            }
+//        }
+        
+        
+       
+        
+        public void execute(IOutputter outputter) {
+        String fileName;
+        String fileContent;
+        File newFile;
+        
+
+        switch (this.getParameterCount()) {
+            case 1:
+                fileName = this.getParameterAt(0);
+                newFile = new File(fileName, "");
+                break;
+            case 2:
+                fileName = this.getParameterAt(0);
+                fileContent = this.getParameterAt(1);
+                newFile = new File(fileName, fileContent);
+                break;
+            default:
+                return;
+        }
+        
+        this.getDrive().getCurrentDirectory().add(newFile);
+    }
 }

@@ -7,6 +7,8 @@
 package filesystem;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**This class abstracts File and Directory.
  * Composite-Pattern: Component
@@ -30,6 +32,8 @@ public abstract class FileSystemItem {
 	private String name;
 	private Directory parent;
 	private static final String ILLEGAL_ARGUMENT_TEXT = "Error: A file or directory name may not contain '/', '\', ',', ' ' or ':'";
+        private Date createdDate;
+       
 	
 	protected FileSystemItem(String name, Directory parent) throws IllegalArgumentException {
 		if(checkName(name) == false) {
@@ -37,6 +41,13 @@ public abstract class FileSystemItem {
 		}
 		this.name = name;
 		this.parent = parent;
+                this.createdDate = new Date();
+        
+//                Calendar calendar = Calendar.getInstance();
+//                java.util.Date now = calendar.getTime();
+//                java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+//                System.out.println(currentTimestamp);
+
 	}
 
 	/**Returns the name of the file system item.
@@ -130,4 +141,13 @@ public abstract class FileSystemItem {
 	 *         0 if isDirectory() == true
 	 */
 	public abstract int getSize();
+        
+        public Date getCreatedDate() {
+            return createdDate;
+        }
+
+        public void setCreatedDate(Date createdDate) {
+            this.createdDate = createdDate;
+        }
+        
 }

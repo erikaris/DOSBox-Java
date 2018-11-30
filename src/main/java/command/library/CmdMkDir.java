@@ -10,6 +10,7 @@ import interfaces.IDrive;
 import interfaces.IOutputter;
 import command.framework.Command;
 import filesystem.Directory;
+import java.util.Calendar;
 
 class CmdMkDir extends Command {
     private static final String PARAMETER_CONTAINS_BACKLASH = "At least one parameter denotes a path rather than a directory name.";
@@ -47,6 +48,13 @@ class CmdMkDir extends Command {
 
     @Override
     public void execute(IOutputter outputter) {
+        
+//        Calendar calendar = Calendar.getInstance();
+//        java.util.Date now = calendar.getTime();
+//        java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+//        System.out.println(currentTimestamp);
+        
+        
         for(int i=0 ; i<getParameterCount() ; i++)
         {
             CreateDirectory(getParameterAt(i), this.getDrive());
