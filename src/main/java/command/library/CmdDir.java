@@ -12,6 +12,7 @@ import interfaces.IOutputter;
 import command.framework.Command;
 import filesystem.Directory;
 import filesystem.FileSystemItem;
+import java.text.SimpleDateFormat;
 
 class CmdDir extends Command {
     private static final String SYSTEM_CANNOT_FIND_THE_PATH_SPECIFIED = "File Not Found"; 
@@ -78,6 +79,10 @@ class CmdDir extends Command {
             }
 
             outputter.print("\t" + item.getName());
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String strDate = formatter.format(item.getCreatedDate());
+            outputter.print("\t" + strDate);
             outputter.newLine();
         }
     }
