@@ -33,8 +33,28 @@ public class Console {
         this.outputter.printLine("DOSBox, Scrum.org, Professional Scrum Developer Training");
         this.outputter.printLine("Copyright (c) Rainer Grau and Daniel Tobler. All rights reserved.");
 
-		while(line.trim().compareToIgnoreCase("exit") != 0) {
-			int readChar = 0;
+//		while(line.trim().compareToIgnoreCase("exit") != 0) {
+//                    int readChar = 0;
+//			StringBuilder input = new StringBuilder();
+//
+//			this.outputter.newLine();
+//			this.outputter.print(this.drive.getPrompt());
+//			try {
+//				while (readChar != '\n') {
+//					readChar = System.in.read();
+//					input.append((char)readChar);
+//				}
+//				line = input.toString();
+//			} catch (IOException e) {
+//				// do nothing by intention
+//			}
+//			
+//			this.outputter.resetStatistics();
+//			invoker.executeCommand(line, this.outputter);
+//		}
+
+                while((line.trim().compareToIgnoreCase("exit") != 0) && (line.trim().compareToIgnoreCase("exit gugus") != 0)) {
+                    int readChar = 0;
 			StringBuilder input = new StringBuilder();
 
 			this.outputter.newLine();
@@ -52,6 +72,8 @@ public class Console {
 			this.outputter.resetStatistics();
 			invoker.executeCommand(line, this.outputter);
 		}
+                
+
 		this.outputter.printLine("\nGoodbye!");
 		this.drive.save();
 	}
